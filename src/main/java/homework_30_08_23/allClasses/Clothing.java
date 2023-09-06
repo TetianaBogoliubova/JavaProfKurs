@@ -20,6 +20,7 @@ public class Clothing {
     }
 
     public Clothing(int id, String name, ProductCategory category, double price, Currency currency, Size size) {
+        //super();
         //super(id, name, category, price, currency);
         this.size = size;
     }

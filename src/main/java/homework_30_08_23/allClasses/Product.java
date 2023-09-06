@@ -3,8 +3,8 @@ package homework_30_08_23.allClasses;
 
 import homework_30_08_23.allEnums.Currency;
 import homework_30_08_23.allEnums.ProductCategory;
-import lombok.Getter;
-import lombok.Setter;
+//import lombok.Getter;
+//import lombok.Setter;
 
 public class Product {
     private int id;
