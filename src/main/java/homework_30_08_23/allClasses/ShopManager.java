@@ -9,10 +9,9 @@ public class ShopManager {
     public Product[] products = new Product[5];
 
     public void run() {
-
         addProduct(new Product(6, "Jacket", ProductCategory.MENSWEAR, 45.00, Currency.EUR));
-        getProductsByCategory(ProductCategory.WOMEN_CLOTHES);
-        getProductsByPriceRange(10, 20, Currency.EUR);
+        //getProductsByCategory(ProductCategory.WOMEN_CLOTHES);
+        //getProductsByPriceRange(10, 20, Currency.EUR);
     }
 
     private void addProduct(Product product) { //для добавления товара в список
@@ -33,21 +32,23 @@ public class ShopManager {
         System.out.println("Список товаров после добавления нового товара: " + Arrays.toString(addInProducts));
     }
 
-    private void getProductsByCategory(ProductCategory category) {//для получения списка товаров по заданной категории
+    public void getProductsByCategory(ProductCategory category) {//для получения списка товаров по заданной категории
 
         for (Product i : products) {
-            if (i.getCategory().equals(category)) {
-                System.out.println("Товары из указанной категории: " + i.getName() + i.getPrice() + i.getCurrency());
-            }
+            if (i.getCategory() == category) ;
+            System.out.println("Товары из указанной категории: " + i.getName() + i.getPrice() + i.getCurrency());
         }
+
+
         // или второе решение в этом методе:
-//        for (Product i : products) {
-//            if (i.getCategory() == category) {
-//                System.out.println("Товары из указанной категории: " + i);
-//            }
+//        for(Product i :products) {
+//        if (i.getCategory().equals(category);
+//            System.out.println("Товары из указанной категории: " + i);
+//        }
     }
 
-    private void getProductsByPriceRange(double minPrice, double maxPrice, Currency currency) {
+
+    public void getProductsByPriceRange(double minPrice, double maxPrice, Currency currency) {
         //для получения списка товаров в заданном диапазоне цен и в указанной валюте.
 
         for (Product i : products) {
@@ -55,7 +56,7 @@ public class ShopManager {
                 System.out.println("Товары в заданном диапазоне цен: " + i.getName());
         }
 
-      //или второе решение в этом методе:
+        //или второе решение в этом методе:
 
 //        List<Product> newProducts = new ArrayList<>();
 //        for (int i = 0; i < products.length; i++) {

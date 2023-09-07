@@ -10,6 +10,7 @@ public class CreditAccount extends Account implements Transferable {
 
     @Override
     public void transfer(Account destination, double amount) {
+
         double x;
         x = getBalance() - amount;
         if (x < 0) {
@@ -17,3 +18,4 @@ public class CreditAccount extends Account implements Transferable {
         }
     }
 }
+
