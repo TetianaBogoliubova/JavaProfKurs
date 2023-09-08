@@ -7,9 +7,13 @@ import homework_30_08_23.allEnums.Currency;
 import homework_30_08_23.allEnums.ProductCategory;
 import homework_30_08_23.allEnums.Size;
 
-public class Clothing {
+public class Clothing extends Product {
 
     private Size size;
+
+    public Clothing(int id, String name, ProductCategory category, double price, Currency currency) {
+        super(id, name, category, price, currency);
+    }
 
     public Size getSize() {
         return size;
@@ -17,11 +21,6 @@ public class Clothing {
 
     public void setSize(Size size) {
         this.size = size;
-    }
 
-    public Clothing(int id, String name, ProductCategory category, double price, Currency currency, Size size) {
-        //super();
-        //super(id, name, category, price, currency);
-        this.size = size;
     }
 }
