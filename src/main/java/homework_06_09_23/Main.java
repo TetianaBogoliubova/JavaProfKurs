@@ -1,33 +1,56 @@
 package homework_06_09_23;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
-    static char c;
-
+    static char c1;
+    static char c2;
+    static char c3;
+    static char c4;
+    static int inputName;
 
     public static void main(String[] args) {
+
+        Student student = new Student("name", 0, Grade.A);
+
         GradeManagementSystem gms = new GradeManagementSystem();
-        Student student = new Student("Ливанов", 20, Grade.A);
-        System.out.println("Введите имя студента из списка: " + Arrays.toString(gms.students));
-        Scanner scanner = new Scanner(System.in);
-        String inputName = scanner.nextLine();
+        GradeComparator gradeComparator = new GradeComparator();
 
-        c = Teacher.gradeStudent();
-        System.out.println("Средняя оценка студента " + inputName + " - " + c);
+        Teacher teacher = new Teacher("name", 0, Category.I);
 
+        System.out.println("Отображение среднего балла студента по его фамилии: ");
+        student.getGradeName("Петров");// <--- введите необходимую фамилию
+
+        c1 = Teacher.gradeStudent();
+        c2 = Teacher.gradeStudent();
+        c3 = Teacher.gradeStudent();
+        c4 = Teacher.gradeStudent();
+
+        System.out.println("Баллы, которые студент получал за последние 2 недели - " + c1 + ", " + c2 + ", " + c3 + ", " + c4);
         student.getDescription();
-        student.getGrade("Петров");
-        gms.processStudents("Сидоров");
 
+        System.out.println();
 
-//char c = Teacher.gradeStudent();
-        //System.out.println(Teacher.gradeStudent());
-//        System.out.println();
-//        System.out.println(Arrays.toString(gms.teachers));
+        System.out.println("Отбор студентов по определенному среднему баллу: ");
+        gms.processStudents(Grade.A);// <--- ввести нужный балл
 
+        System.out.println("Сравнительная характеристика среднего балла успеваимости студентов");
+        Arrays.sort(gms.students, gradeComparator);
+        for (Student stud : gms.students) {
+            System.out.println(stud.getGrade() + ", " + stud.getName());
+        }
+        System.out.println();
+
+        System.out.println("Отбор преподавателя по категории: ");
+        gms.processTeachers(Category.III);// <--- ввести нужную категорию
+
+        System.out.println();
+
+        System.out.println("Введите возраст преподавателя: "); // \n" + Arrays.toString(gms.teachers));
+        Scanner scanner = new Scanner(System.in);
+        inputName = scanner.nextInt();
+        teacher.getDescription();
     }
 }

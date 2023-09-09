@@ -2,21 +2,33 @@ package homework_06_09_23;
 
 import java.util.Random;
 
-public class Teacher extends Person {
-    public Teacher(String name, int age) {
+public class Teacher extends Person implements Categoried {
+
+    Category category;
+    GradeManagementSystem gms2 = new GradeManagementSystem();
+    //Main main2 = new Main();
+
+    public Teacher(String name, int age, Category category) {
         super(name, age);
+        this.category = category;
+
     }
-    Grade teacherGrade;
-    @Override
+
+    @Override // метод выдает информацию о преподавателе
     void getDescription() {
+            if (Main.inputName >= 35) {
+                System.out.println("Преподаватель может пройти курс по повышению категории квалификации");
+            } else System.out.println("Преподаватель не может еще пройти курс по повышению категории квалификации");
+        }
 
-    }
-
-    public static char gradeStudent() {//который будет выставлять оценку студенту.
+    public static char gradeStudent() {//метод будет выставлять случайную оценку студенту.
         Random random = new Random();
-       return (char) (random.nextInt(4)+'A');
+        return (char) (random.nextInt(4) + 'A');
 
-          // В данном ТЗ можно использовать случайное присвоение оценки студенту.
     }
 
+    @Override
+    public Category getCategory() {
+        return category;
+    }
 }

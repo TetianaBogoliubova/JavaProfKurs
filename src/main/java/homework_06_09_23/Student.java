@@ -8,29 +8,27 @@ public class Student extends Person implements Graded {
         this.grade = grade;
     }
 
-    //GradeManagementSystem gms1 = new GradeManagementSystem();
-
-    @Override
+    @Override //метод выдает информацию о студенте
     void getDescription() {
-        if (Main.c == 'A' || Main.c == 'B') System.out.println("Студент рекомендован к прохождению стажировки");
-        if (Main.c == 'C' || Main.c == 'D') System.out.println("Студенту следует повторно прослушать курс");
+        if (Main.c1 == 'D' || Main.c2 == 'D' || Main.c3 == 'D' || Main.c4 == 'D') {
+            System.out.println("Студенту следует повторно прослушать курс");
+        } else System.out.println("Студент рекомендован к прохождению стажировки");
+
 
     }
 
-//    @Override
-//    public Grade getGrade(String name) {
-//        return grade;
-//    }
-
-
     @Override
-    public void getGrade(String arg) {
+    public void getGradeName(String arg) {// метод возвращает имя студенка по его оценке
         for (Student stud : GradeManagementSystem.students) {
             if (stud.getName().equals(arg))
-                System.out.println("Оценка и имя" + stud.getName() + ":" + stud.grade);
+                System.out.println("Средний балл студента " + stud.getName() + " : " + stud.grade);
             } return;
-
             }
-        }
+
+    @Override // метод возвращает оценку студента
+    public Grade getGrade() {
+return grade;
+    }
+}
 
 
