@@ -20,8 +20,16 @@ public class Clothing extends Product {
         return size;
     }
 
+    @Override
+    public String toString() {
+        return "Clothing{" +
+                "size=" + size +
+                '}';
+    }
+
     public void setSize(Size size) {
         this.size = size;
+
 
     }
 }

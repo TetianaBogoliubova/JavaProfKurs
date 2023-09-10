@@ -2,21 +2,22 @@ package homework_30_08_23.allClasses;
 
 import homework_30_08_23.allEnums.Currency;
 import homework_30_08_23.allEnums.ProductCategory;
+import homework_30_08_23.allEnums.Size;
 
 import java.util.Arrays;
 
 public class ShopManager {
 
     static Product[] products = {
-            new Product(1, "Dress", ProductCategory.WOMEN_CLOTHES, 25.00, Currency.EUR),
-            new Product(2, "Skirt", ProductCategory.WOMEN_CLOTHES, 15.00, Currency.EUR),
-            new Product(3, "Trousers", ProductCategory.MENSWEAR, 18.50, Currency.EUR),
-            new Product(4, "Blouse", ProductCategory.TEEN_CLOTHES, 13.50, Currency.EUR),
-            new Product(5, "T-Shirt", ProductCategory.CHILDREN_CLOTHES, 4.00, Currency.EUR)
+            new Clothing(1, "Dress", ProductCategory.WOMEN_CLOTHES, 25.00, Currency.EUR, Size.WOMEN_SIZE),
+            new Clothing(2, "Skirt", ProductCategory.WOMEN_CLOTHES, 15.00, Currency.EUR, Size.WOMEN_SIZE),
+            new Clothing(3, "Trousers", ProductCategory.MENSWEAR, 18.50, Currency.EUR, Size.MEN_SIZE),
+            new Clothing(4, "Blouse", ProductCategory.TEEN_CLOTHES, 13.50, Currency.EUR, Size.TEEN_SIZE),
+            new Clothing(5, "T-Shirt", ProductCategory.CHILDREN_CLOTHES, 4.00, Currency.EUR, Size.CHILDREN_SIZE)
     };
 
     public void run() {
-        addProduct(new Product(6, "Jacket", ProductCategory.MENSWEAR, 45.00, Currency.EUR));
+        addProduct(new Clothing(6, "Jacket", ProductCategory.MENSWEAR, 45.00, Currency.EUR, Size.MEN_SIZE));
         getProductsByCategory(ProductCategory.TEEN_CLOTHES);
         getProductsByPriceRange(10, 15, Currency.EUR);
     }
