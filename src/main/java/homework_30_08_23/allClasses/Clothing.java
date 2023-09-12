@@ -30,6 +30,5 @@ public class Clothing extends Product {
     public void setSize(Size size) {
         this.size = size;
 
-
     }
 }

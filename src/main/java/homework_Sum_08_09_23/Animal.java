@@ -2,9 +2,10 @@ package homework_Sum_08_09_23;
 
 import lombok.Getter;
 import lombok.Setter;
-public abstract class Animal implements Playable{
+
+public abstract class Animal implements Playable {
     Getter
-    Setter;
+            Setter;
     private String name;
     private int age;
     private boolean isHungry;
@@ -22,7 +23,7 @@ public abstract class Animal implements Playable{
         this.isHungry = true;
     }
 
-    public void feed(){
+    public void feed() {
         isHungry = false;
         System.out.println(this.getClass().getSimpleName() + " is not hungry anymore");
     }

@@ -1,6 +1,6 @@
 package homework_Sum_08_09_23;
 
-public class Lion extends WildAninal implements Playable{
+public class Lion extends WildAninal implements Playable {
     String name;
 
     public Lion(String name) {

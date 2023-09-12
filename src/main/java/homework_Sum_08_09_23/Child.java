@@ -21,6 +21,5 @@ public class Child extends Parent {
 
         System.out.println("super.data field: " + super.data);
         System.out.println("this.data field: " + this.data);
-
     }
 }

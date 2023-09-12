@@ -4,7 +4,6 @@ public class Robot implements Playable, Workable, Walkable {
     @Override
     public void play() {
         System.out.println("Robot plays");
-
     }
 
     @Override
@@ -20,5 +19,10 @@ public class Robot implements Playable, Workable, Walkable {
     @Override
     public void walk(Pet pet) {
         System.out.println("Robot walks with " + pet);
+    }
+
+    @Override
+    public String toString() {
+        return "Robot{}";
     }
 }

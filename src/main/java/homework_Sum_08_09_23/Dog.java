@@ -8,6 +8,7 @@ public class Dog extends Pet {
             Setter;
     private String color;
 
+    // Cat cat = new Cat("name", 0);
     public Dog(String name, int age, String color) {
         super(name, age);
         this.color = color;
@@ -25,10 +26,9 @@ public class Dog extends Pet {
 
     @Override
     public void play(Playable playable) {
-Cat cat = new Cat("name", 0);
-        //System.out.println("Dog plays with " + playable);
-        if (playable == cat.dog) {
-            System.out.println("dog gav auf cat");
-        } else System.out.println(",,,,");
+
+        if (playable instanceof Cat) {
+            System.out.println("Dog barks auf cat");
+        } else System.out.println("Dog play with " + playable);
     }
 }

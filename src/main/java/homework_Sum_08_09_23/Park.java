@@ -24,8 +24,8 @@ public class Park {
 //        cat.play();
 //        dog.play();
         human.play(cat);
-
-        System.out.println("*************");
+        System.out.println();
+        System.out.println("Домашнее задание от 08.09.23: дописанные или измененные методы: ");
         human.walk(dog);
         robot.walk(cat);
         lion.feed();
@@ -34,14 +34,14 @@ public class Park {
         wolf.play();
         lion.play(cat);
         wolf.play(dog);
-        System.out.println();
-        cat.play(human);
+        cat.play(dog);
         dog.play(cat);
         System.out.println("*************");
 
-//        Playable[] arrayOfGamers = {human, cat, dog};
-//        allPlay(arrayOfGamers);
-        allPlayWithVarArg(human, cat, dog, robot);
+        Playable[] arrayOfGamers = {human, cat, dog, robot};
+        allPlay(arrayOfGamers);
+
+        //allPlayWithVarArg(human, cat, dog, robot);
     }
 
     public static void allPlay(Playable[] playables) {

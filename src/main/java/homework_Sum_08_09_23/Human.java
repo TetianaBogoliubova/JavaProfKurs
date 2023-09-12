@@ -17,10 +17,16 @@ public class Human implements Playable, Walkable {
         System.out.println("Human " + name + " plays with " + playable);
     }
 
-
     @Override
     public void walk(Pet pet) {
         System.out.println("Human " + name + " walks with " + pet);
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
 
