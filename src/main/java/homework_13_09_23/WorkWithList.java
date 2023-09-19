@@ -81,48 +81,43 @@ public class WorkWithList {
     }
 
     //8. Перебрать ArrayList<String> и найти количество элементов, начинающихся с определенной буквы.
-    public void getStringWithFirstLetter(List<String> list) {
-        char compareLetter = 'F';
+    public void getStringWithFirstLetter(List<String> list, char x) {
         int j = 0;
         for (String i : list) {
             char firstLetter = i.charAt(0);
-            if (firstLetter == compareLetter) {
+            if (firstLetter == x) {
                 j++;
             }
         }
-        System.out.println("Letter " + compareLetter + " repeats " + j);
+        System.out.println("Letter " + x + " repeats " + j);
 
     }
 
     //9. Перебрать LinkedList<String> и найти первое вхождение определенной строки.
-    public void getFirstEntry(List<String> list) {
-        String compereWord = "Nine";
+    public void getFirstEntry(List<String> list, String str) {
         int j = 0;
         for (int i = 0; i < list.size(); i++) {
             String currentWord = list.get(i);
-            if (currentWord.equals(compereWord)) {
+            if (currentWord.equals(str)) {
                 j = i;
                 break;
             }
         }
-        System.out.println("Index of first entry for " + compereWord + " is " + j);
+        System.out.println("Index of first entry for " + str + " is " + j);
     }
 
     //10. Создать LinkedList с объектами вашего собственного класса и удалить все элементы, удовлетворяющие определенному условию.
-    public List getListWithoutSpecialElements(List<MyClass> list) {
+    public List getListWithoutSpecialElements(List<MyClass> list, int arg) {
         List<MyClass> newList = new LinkedList<>();
-        int specialElement = 3333;
         for (MyClass i : list) {
-            if (i.getAccount() != specialElement) {
+            if (i.getAccount() != arg) {
                 newList.add(i);
-
             }
         }
         list.clear();
         list.addAll(newList);
         return list;
     }
-
 
 //    Уровень сложности 7 из 10:
 
@@ -169,12 +164,11 @@ public class WorkWithList {
     }
 
     //14. Перебрать LinkedList<String> и удалить все элементы, содержащие определенную подстроку.
-    public List deleteElementWithString(List<String> list) {
+    public List deleteElementWithString(List<String> list, String str) {
         List<String> newList = new LinkedList<>();
-        String extractionString = "Eight";
         for (int i = 0; i < list.size(); i++) {
             String currentString = list.get(i);
-            if (currentString != extractionString) {
+            if (currentString != str) {
                 newList.add(list.get(i));
             }
         }
@@ -184,11 +178,9 @@ public class WorkWithList {
     }
 
     //15. Создать ArrayList с объектами вашего собственного класса и вывести только те, которые удовлетворяют определенному условию.
-    public void getListWithSpecialCondition(List<MyClass> list) {
-        String condition1 = "cat_1";
-        String condition2 = "cat_3";
+    public void getListWithSpecialCondition(List<MyClass> list, String str1, String str2) {
         for (MyClass i : list) {
-            if (i.getCategory().equals(condition1) || i.getCategory().equals(condition2)) {
+            if (i.getCategory().equals(str1) || i.getCategory().equals(str2)) {
                 System.out.println(i);
             }
         }
@@ -221,12 +213,10 @@ public class WorkWithList {
         for (String i : list) {
             if (i.length() < firstShotString.length()) {
                 firstShotString = i;
-
             }
         }
         return firstShotString;
     }
-
 
     //19. Перебрать LinkedList<String> и заменить все гласные буквы в каждой строке на символ '*'.
     public void changeVowelLetters(List<String> list) {
@@ -244,14 +234,11 @@ public class WorkWithList {
         }
     }
 
-
 //    Уровень сложности 9 из 10:
 
     //21.Перебрать ArrayList<Integer> и найти второй по величине элемент.
     public int getSecondLargestNumber(List<Integer> list) {
-
         Collections.sort(list, Collections.reverseOrder());
-
         return list.get(1);
     }
 

@@ -137,16 +137,16 @@ public class Main {
 
         System.out.println(workWithList.getLessNumber(list_array1));
         System.out.println(workWithList.getMaxNumber(list_linked1));
-        workWithList.getStringWithFirstLetter(list_array4);
-        workWithList.getFirstEntry(list_linked4);
-        System.out.println(workWithList.getListWithoutSpecialElements(linkedMyClass1));
+        workWithList.getStringWithFirstLetter(list_array4, 'F');
+        workWithList.getFirstEntry(list_linked4, "Nine");
+        System.out.println(workWithList.getListWithoutSpecialElements(linkedMyClass1, 333));
         System.out.println();
 
         System.out.println(workWithList.getListWithoutEverNumbers(list_array1));
         System.out.println(workWithList.getListWithNumberMultiplesOfThree(list_linked1));
         workWithList.connectStrings(list_array4);
-        System.out.println(workWithList.deleteElementWithString(list_linked4));
-        workWithList.getListWithSpecialCondition(arrayMyClass1);
+        System.out.println(workWithList.deleteElementWithString(list_linked4, "Eight"));
+        workWithList.getListWithSpecialCondition(arrayMyClass1, "cat_1", "cat_3");
         System.out.println();
 
         System.out.println(workWithList.getSumSquareNumbers(list_array1));
