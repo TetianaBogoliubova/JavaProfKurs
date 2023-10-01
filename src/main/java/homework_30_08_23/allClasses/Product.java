@@ -61,6 +61,9 @@ public class Product {
         this.currency = currency;
     }
 
+    public Product() {
+    }
+
     @Override
     public String toString() {
         return "Product{" +

@@ -10,7 +10,7 @@ import lombok.Setter;
 //для применения скидки к продукту. Реализовать два класса, PhysicalProduct и DigitalProduct,
 //наследующихся от абстрактного класса Product. Класс PhysicalProduct может иметь наценку за доставку,
 //а класс DigitalProduct не имеет такой наценки.
-public abstract class Product {
+public class Product {
    // Getter
     //Setter;
     private final String name;
