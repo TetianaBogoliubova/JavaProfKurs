@@ -58,6 +58,7 @@ package addPracticeTasks.practice_27_09_23_students;
 public class Main {
     public static void main(String[] args) {
         DataProcessor dataProcessor = new DataProcessor();
-        System.out.println(dataProcessor.students);
+        System.out.println(dataProcessor.setUpStudents());
+        System.out.println(dataProcessor.setUpCourses().toString());
     }
 }

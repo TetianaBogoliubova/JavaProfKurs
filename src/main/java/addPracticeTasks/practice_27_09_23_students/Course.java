@@ -9,13 +9,10 @@ public class Course {
     private String courseDescription;// Описание учебного предмета.
     private int courseCredits;//Количество кредитов, присваиваемых за успешное прохождение предмета.
     private List<Student> studentsEnrolled;// Список студентов, зарегистрированных на данный предмет.
-    private List<Student> gradeBook;// Связь студентов и их оценок по данному предмету.
+    private Map<String, List<Double>> gradeBook;// Связь студентов и их оценок по данному предмету.
 
 
-//    public Course(int courseId, String courseName, String courseDescription, int courseCredits, List<String> studentsEnrolled, Map<String, Double> gradeBook) {
-//    }
-
-    public Course(int courseId, String courseName, String courseDescription, int courseCredits, List<Student> studentsEnrolled,  List<Student> gradeBook) {
+    public Course(int courseId, String courseName, String courseDescription, int courseCredits, List<Student> studentsEnrolled,  Map<String, List<Double>> gradeBook) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
@@ -24,9 +21,16 @@ public class Course {
         this.gradeBook = gradeBook;
     }
 
+//    public Course(int courseId, String courseName, String courseDescription, int courseCredits, Student ob, String gradeBook) {
+//    }
+
+    public Course() {
+    }
+
     public int getCourseId() {
         return courseId;
     }
+
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
@@ -64,11 +68,23 @@ public class Course {
         this.studentsEnrolled = studentsEnrolled;
     }
 
-    public List<Student> getGradeBook(String str) {
+    public Map<String, List<Double>> getGradeBook(String str) {
         return gradeBook;
     }
 
-    public void setGradeBook( List<Student> gradeBook) {
+    public void setGradeBook( Map<String, List<Double>> gradeBook) {
         this.gradeBook = gradeBook;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", courseName='" + courseName + '\'' +
+                ", courseDescription='" + courseDescription + '\'' +
+                ", courseCredits=" + courseCredits +
+                ", studentsEnrolled=" + studentsEnrolled +
+                ", gradeBook=" + gradeBook +
+                '}';
     }
 }

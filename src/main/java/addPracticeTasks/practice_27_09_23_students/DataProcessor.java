@@ -11,15 +11,32 @@ public class DataProcessor {
     Student student;
 
     List<Student> students = new ArrayList<>();// Список всех зарегистрированных студентов.
-    Set<Course> courses = new HashSet<Course>();// (): Множество всех доступных учебных предметов.
-    List<Student> gradesList = new ArrayList<>();
-    List<Course> coursesForStudent = new ArrayList<>();
+    Set<Course> courses = new HashSet<>();// (): Множество всех доступных учебных предметов.
+    List<Double> grades = new ArrayList<>();//Список оценок студента.
+    List<Student> studentsEnrolled = new ArrayList<>();//Список студентов, зарегистрированных на данный предмет.
+    List<Student> gradeBook = new ArrayList<>();
 
     public DataProcessor() {
-        course = new Course(ms.getCourseId(), ms.getCourseName(), ms.getCourseDescription(), ms.getCourseCredits(), ms.getStudentsEnrolled(""), ms.getGradeBook(""));
-        student = new Student(ms.getIdStudent(), ms.getFirstName(), ms.getLastName(), ms.getAgeStudent(), ms.setUpGradesStudentList(), (List<String>) ms.getCoursesByStudent());
     }
 
+//    public DataProcessor() {
+//        course = new Course(ms.getCourseId(), ms.getCourseName(), ms.getCourseDescription(), ms.getCourseCredits(), ms.getStudentsEnrolled(""), ms.getGradeBook(""));
+//        student = new Student(ms.getIdStudent(), ms.getFirstName(), ms.getLastName(), ms.getAgeStudent(), ms.setUpGradesStudentList(), (List<String>) ms.getCoursesByStudent());
+//    }
+
+
+    public DataProcessor(MethodsForStudents ms, Course course, Student student, List<Student> students, Set<Course> courses, List<Double> grades, List<Student> studentsEnrolled, List<Student> gradeBook) {
+        this.ms = ms;
+        this.course = course;
+        this.student = student;
+        this.students = students;
+        this.courses = courses;
+        this.grades = grades;
+        this.studentsEnrolled = studentsEnrolled;
+        this.gradeBook = gradeBook;
+    }
+
+    //Множество всех доступных учебных предметов.
     public Set<Course> setUpCourses() {
         while (courses.size() < 15) {
             Course course = new Course(
@@ -27,14 +44,15 @@ public class DataProcessor {
                     ms.getCourseName(),
                     ms.getCourseDescription(),
                     ms.getCourseCredits(),
-                    ms.getStudentsEnrolled(""),
-                    ms.getGradeBook("")
+                    (List<Student>) ms.getStudentsEnrolled(),
+                    ms.getGradeBook()
             );
-courses.add(course);
+            courses.add(course);
         }
         return courses;
     }
 
+    //Список всех зарегистрированных студентов.
     public List<Student> setUpStudents() {
         while (students.size() < 40) {
             Student student = new Student(
@@ -43,20 +61,13 @@ courses.add(course);
                     ms.getLastName(),
                     ms.getAgeStudent(),
                     ms.setUpGradesStudentList(),
-                    ms.getCoursesByStudent()
+                    ms.setCoursesForStudent()
             );
             students.add(student);
         }
         return students;
     }
 
-    public List<Course> setCoursesByStudent() {
-        while (coursesForStudent.size() < 9) {
-            Student course1 = ms.getCoursesByStudent();
-            coursesForStudent.add(course);
-        }
-        return coursesForStudent;
-    }
 
 
     //Методы:

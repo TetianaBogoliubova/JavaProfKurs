@@ -9,27 +9,21 @@ public class Student {
     private String lastName;// Фамилия студента.
     private int age; //Возраст студента.
     private List<Double> grades; //Список оценок студента.
-    private List<Course> coursesByStudent;// Множество учебных предметов, которые посещает студент.
+    private List<Course> courses1;// Множество учебных предметов, которые посещает студент.
 
 
-//    public Student(int idStudent, String firstName, String lastName, int ageStudent, List<Double> doubles, Course coursesByStudent) {
-//    }
-
-
-    public Student(int id, String firstName, String lastName, int age, List<Double> grades, List<Course> coursesByStudent) {
+    public Student(int id, String firstName, String lastName, int age, List<Double> grades, List<Course> courses1) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.grades = grades;
-        this.coursesByStudent = coursesByStudent;
+        this.courses1 = courses1;
     }
 
     public int getId() {
         return id;
-
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -66,19 +60,23 @@ public class Student {
         this.grades = grades;
     }
 
-//    public List<Course> getCoursesByStudent() {
-//        return coursesByStudent;
-//    }
-//
-//    public void setCourses(List<String> courses) {
-//        this.coursesByStudent = courses;
-//    }
-
-    public List<Course> getCoursesByStudent() {
-        return coursesByStudent;
+    public List<Course> getCourses() {
+        return courses1;
     }
 
-    public void setCoursesByStudent(List<Course> coursesByStudent) {
-        this.coursesByStudent = coursesByStudent;
+    public void setCourses(List<Course> courses1) {
+        this.courses1 = courses1;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", grades=" + grades +
+                ", courses1=" + courses1 +
+                '}';
     }
 }

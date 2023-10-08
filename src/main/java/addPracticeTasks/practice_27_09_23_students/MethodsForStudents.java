@@ -5,17 +5,14 @@ import com.github.javafaker.Faker;
 import java.util.*;
 
 public class MethodsForStudents {
-
-    // Student student = new Student(ms.getIdStudent(), ms.getFirstName(), ms.getLastName(), ms.getAgeStudent(), ms.setUpGradesList(), ms.getCoursesByStudent());
-    Random random = new Random();
-    Faker faker = new Faker();
-    //DataProcessor dataProcessor = new DataProcessor();
-    // private DataProcessor dataProcessor;
-private DataProcessor dataProcessor;
+Course course = new Course();
+    private final Random random = new Random();
+    private final Faker faker = new Faker();
+    private DataProcessor dataProcessor;
     private double grade;
     List<Double> grades = new ArrayList<>();
-     List<Student> gradeBook = new ArrayList<>();
-    List<String> coursesByStudent = new ArrayList<>();
+    Map<String, List<Double>> gradeBook = new HashMap<>();
+    List<Course> courses1 = new ArrayList<>();
     List<Student> studentsEnrolled = new ArrayList<>();
 
     public DataProcessor getDataProcessor() {
@@ -33,25 +30,6 @@ private DataProcessor dataProcessor;
     public void setGrade(double grade) {
         this.grade = grade;
     }
-//    public MethodsForStudents() {
-//        grades = random.nextDouble(1, 10);
-//    }
-
-//    public MethodsForStudents() {
-//        grades = random.nextDouble(1, 10);
-//    }
-
-//    public MethodsForStudents(DataProcessor dataProcessor) {
-//        this.dataProcessor = new DataProcessor();
-//        this.dataProcessor = dataProcessor;
-//        faker = new Faker();
-//    }
-
-//    public MethodsForStudents() {
-//        dataProcessor = new DataProcessor();
-//        faker = new Faker();
-//    }
-
 
     public int getIdStudent() {
         int id = random.nextInt(10, 100);
@@ -73,20 +51,22 @@ private DataProcessor dataProcessor;
         return age;
     }
 
-    public double getGradeStudent() {
-        grade = random.nextInt(1, 10);
-        grade = Math.round(grade * 100.0) / 100.0;
-        return grade;
-    }
 
     public List<Double> setUpGradesStudentList() {
-        //grades = Math.round(grades * 100.0) / 100.0;
-        while (grades.size() < 15) {
+        List<Double> grades = new ArrayList<>();
+//        grade = random.nextInt(1, 10);
+//        grade = Math.round(grade * 100.0) / 100.0;
+        for (int i = 0; i < 10; i++) {
+            double grade = Math.round(random.nextDouble(1, 10) * 100.0) / 100.0;
             grades.add(grade);
         }
         return grades;
-    }
 
+//        while (grades.size() < 10) {
+//            grades.add(grade);
+//        }
+//        return grades;
+    }
 
     public int getCourseId() {
         int courseId = random.nextInt(10, 50);
@@ -108,29 +88,32 @@ private DataProcessor dataProcessor;
         return courseCredits;
     }
 
-    public List<Student> getStudentsEnrolled(String str) {
-        for (Student i : dataProcessor.c) {
-            if (i.getCoursesByStudent().equals(str)) {
-                studentsEnrolled.add();
-            }
+    //Список студентов, зарегистрированных на данный предмет.
+    public Student getStudentsEnrolled() {
+        if (dataProcessor != null) {
+            return dataProcessor.students.get(Integer.parseInt(faker.name().lastName()));
         }
-        return studentsEnrolled;
+        return null;
     }
 
-    public List<Student> getGradeBook(String arg) {
-        for (Student i : dataProcessor.students) {
-            if (i.getCoursesByStudent().equals(arg)) {
-                gradeBook.add(i.getLastName())
-                gradeBook.add((Student) i.getGrades());
-            }
-        }
+
+    //Связь студентов и их оценок по данному предмету.
+    public Map<String, List<Double>> getGradeBook() {
+       // for (Student i : dataProcessor.students) {
+           // //if (i.getCourses().equals(course)) {
+            //gradeBook.put(i.getLastName(),i.getGrades());
+       // }
         return gradeBook;
     }
 
-    public Course getCoursesByStudent() {
+    public List<Course> setCoursesForStudent() {
         if (dataProcessor != null) {
-            return dataProcessor.courses.get(random.nextInt(dataProcessor.courses.size()));
+
+            while (courses1.size() < 9) {
+             course = courses1.get(random.nextInt(courses1.size()));
+                courses1.add(course);
+            }
         }
-        return null;
+        return courses1;
     }
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
+public class MainPart1 {
     public static void main(String[] args) {
 
         //Задание 1: Фильтрация списка целых чисел на нечетные числа
@@ -59,7 +59,6 @@ public class Main {
                 .filter(digit -> digit % 3 == 0 || digit % 5 == 0)
                 .mapToInt(v -> v).sum();
         System.out.println(num);
-
 
         //Задание 9: Получение списка слов, содержащих только уникальные символы, из списка строк
         List<String> listUniqueEl = Arrays.asList("array", "specified", "into", "ascending", "numerical");
