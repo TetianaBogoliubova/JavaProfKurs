@@ -17,7 +17,6 @@ public class MainPart1 {
 
         //Задание 2: Преобразование списка строк в список чисел
         List<String> listStr = Arrays.asList("1", "2", "89", "45", "12");
-        //listStr.stream();
         List<Integer> list2 = listStr.stream()
                 .map(s -> Integer.parseInt(s))
                 .collect(Collectors.toList());
