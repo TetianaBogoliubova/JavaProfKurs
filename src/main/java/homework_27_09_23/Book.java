@@ -1,6 +1,7 @@
 package homework_27_09_23;
 
 public class Book {
+    LibraryManager lm = new LibraryManager();
     private int bookId; //Уникальный идентификатор книги.
     private String bookTitle;//Название книги.
     private String bookAuthor;// Автор книги.
@@ -26,6 +27,38 @@ public class Book {
 
     public Genre getBookGenre() {
         return bookGenre;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
+    }
+
+    public int getBookYear() {
+        return bookYear;
+    }
+
+    public void setBookYear(int bookYear) {
+        this.bookYear = bookYear;
+    }
+
+    public void setBookAvailable(boolean bookAvailable) {
+        this.bookAvailable = bookAvailable;
     }
 
     public boolean isBookAvailable() {

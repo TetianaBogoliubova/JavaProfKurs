@@ -2,7 +2,7 @@ package homework_27_09_23;
 
 public class Main {
     public static void main(String[] args) {
-
+LibraryManagerStream lms = new LibraryManagerStream();
         LibraryManager libraryManager = new LibraryManager();
         Generator generator = new Generator();
 
@@ -14,7 +14,10 @@ public class Main {
         libraryManager.removeBookFromLibrary(false);
         libraryManager.borrowBook(generator.getUserName(), generator.getBookId(), generator.getBookTitle(), generator.getBookAuthor(), generator.getBookGenre(), generator.getBookYear(), generator.getBookAvailable());
         libraryManager.reserveBook(generator.getUserName(), generator.getBookId(), generator.getBookTitle(), generator.getBookAuthor(), generator.getBookGenre(), generator.getBookYear(), generator.getBookAvailable());
-
-
+        System.out.println();
+        System.out.println(lms.listAvailableBooksByGenre2(Genre.CLASSIC));
+        System.out.println(lms.listUserEmailsWithReservedBooks2());
+            System.out.println();
+        libraryManager.addBookToLibrary2(generator.getBookId(), generator.getBookTitle(), generator.getBookAuthor(), generator.getBookGenre(), generator.getBookYear(), generator.getBookAvailable());
     }
 }

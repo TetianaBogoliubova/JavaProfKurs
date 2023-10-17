@@ -1,5 +1,7 @@
 package homework_27_09_23;
 
+import java.util.Calendar;
+
 public class LibraryUser {
     private int userId;// Уникальный идентификатор пользователя библиотеки.
     private String userName; //Iмя пользователя.
@@ -21,6 +23,42 @@ public class LibraryUser {
     }
     public String getUserName() {
         return userName;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public int getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(int userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserBooksBorrowed() {
+        return userBooksBorrowed;
+    }
+
+    public void setUserBooksBorrowed(String userBooksBorrowed) {
+        this.userBooksBorrowed = userBooksBorrowed;
+    }
+
+    public void setUserBooksReserved(String userBooksReserved) {
+        this.userBooksReserved = userBooksReserved;
     }
 
     public String getUserEmail() {

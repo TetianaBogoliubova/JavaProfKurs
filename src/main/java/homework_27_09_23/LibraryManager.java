@@ -4,7 +4,8 @@ import java.util.*;
 
 public class LibraryManager {
     Generator generator = new Generator();
-    LibraryUser libraryUser;
+
+   // LibraryUser libraryUser;
 
     List<Book> libraryCatalog = new ArrayList<>();
     List<LibraryUser> libraryUsers = new ArrayList<>();
@@ -12,9 +13,14 @@ public class LibraryManager {
     List<Book> borrowedBooks = new ArrayList<>();
     List<Book> reservedBooks = new ArrayList<>();
 
-    public LibraryManager() {
-        libraryUser = new LibraryUser(generator.getUserId(), generator.getUserName(), generator.getUserEmail(), generator.getUserPhone(), borrowedBooks.toString(), reservedBooks.toString());
-    }
+//    public LibraryManager() {
+//        setUpUsers();
+//        setUpBooks();
+//    }
+
+//    public LibraryManager() {
+//        libraryUser = new LibraryUser(generator.getUserId(), generator.getUserName(), generator.getUserEmail(), generator.getUserPhone(), borrowedBooks.toString(), reservedBooks.toString());
+//    }
 
     public List<Book> setUpBooks() {
 
@@ -63,18 +69,18 @@ public class LibraryManager {
         return libraryUsers;
     }
 
-    //Метод, который возвращает список доступных книг заданного жанра.
+    // 1.Метод, который возвращает список доступных книг заданного жанра.
     public List<Book> listAvailableBooksByGenre(Genre genre) {
         List<Book> newList = new ArrayList<>();
         for (Book i : libraryCatalog) {
-            if (i.getBookGenre().equals(genre) && i.isBookAvailable() == true) {
+            if (i.getBookGenre().equals(genre)) { // && i.isBookAvailable() == true
                 newList.add(i);
             }
         }
         return newList;
     }
 
-    //Метод,который возвращает множество адресов электронной почты пользователей, зарезервировавших книги.
+    // 2. Метод,который возвращает множество адресов электронной почты пользователей, зарезервировавших книги.
     public Set<String> listUserEmailsWithReservedBooks() {
         Set<String> setWithEmail = new HashSet<>();
         for (LibraryUser i : libraryUsers) {
@@ -85,14 +91,32 @@ public class LibraryManager {
         return setWithEmail;
     }
 
-    //Метод, который добавляет новую книгу в библиотеку.
+    // 3. Метод, который добавляет новую книгу в библиотеку.
     public void addBookToLibrary(int bookId, String bookTitle, String bookAuthor, Genre bookGenre, int bookYear, boolean bookAvailable) {
         Book book = new Book(bookId, bookTitle, bookAuthor, bookGenre, bookYear, bookAvailable);
         libraryCatalog.add(book);
         System.out.println("В библиотеку добавлена новая книга: " + book);
     }
 
-    //Метод, который удаляет книгу из библиотеки.
+//////////////////////////////////////////////////////////
+    public void addBookToLibrary2(int bookId, String bookTitle, String bookAuthor, Genre bookGenre, int bookYear, boolean bookAvailable) {
+            Book book = new Book(bookId, bookTitle, bookAuthor, bookGenre, bookYear, bookAvailable);
+            libraryCatalog.add(book);
+            System.out.println("В библиотеку добавлена новая книга: " + book);
+        }
+
+
+
+
+
+
+
+
+
+
+
+    //////////////////////////////////////////////////////////////////////
+    // 4. Метод, который удаляет книгу из библиотеки.
     public void removeBookFromLibrary(boolean bookAvailable) {
         Iterator<Book> iterator = libraryCatalog.iterator();
         while (iterator.hasNext()) {
@@ -104,7 +128,7 @@ public class LibraryManager {
         System.out.println("Удаление книги из каталога по категории 'Доступность': " + libraryCatalog); //удаление возможно и по всем остальным характеристикам.
     }
 
-    //Метод, который позволяет пользователю взять книгу в аренду.
+    // 5. Метод, который позволяет пользователю взять книгу в аренду.
     public void borrowBook(String userName, int bookId, String bookTitle, String bookAuthor, Genre bookGenre, int bookYear, boolean bookAvailable) {
         Book book = new Book(bookId, bookTitle, bookAuthor, bookGenre, bookYear, bookAvailable);
         for (LibraryUser i : libraryUsers) {
@@ -119,7 +143,7 @@ public class LibraryManager {
         System.out.println("Пользователь " + userName + "взял книгу: " + book + " в аренду");
     }
 
-    //Метод, который позволяет пользователю зарезервировать книгу.
+    // 6 .Метод, который позволяет пользователю зарезервировать книгу.
     public void reserveBook(String userName, int bookId, String bookTitle, String bookAuthor, Genre bookGenre, int bookYear, boolean bookAvailable) {
         Book book = new Book(bookId, bookTitle, bookAuthor, bookGenre, bookYear, bookAvailable);
         for (LibraryUser i : libraryUsers) {
@@ -133,4 +157,12 @@ public class LibraryManager {
         }
         System.out.println("Пользователь " + userName + "поставил книгу: " + book + " в резерв");
     }
+
+//    public LibraryUser getLibraryUser() {
+//        return libraryUser;
+//    }
+//
+//    public void setLibraryUser(LibraryUser libraryUser) {
+//        this.libraryUser = libraryUser;
+//    }
 }
