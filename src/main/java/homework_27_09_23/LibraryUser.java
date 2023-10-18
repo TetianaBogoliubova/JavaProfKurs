@@ -10,9 +10,6 @@ public class LibraryUser {
     private String userBooksBorrowed;//Список книг, взятых пользователем в аренду.
     private String userBooksReserved; //Множество книг, зарезервированных пользователем
 
-    public LibraryUser() {
-    }
-
     public LibraryUser(int userId, String userName, String userEmail, int userPhone, String userBooksBorrowed, String userBooksReserved) {
         this.userId = userId;
         this.userName = userName;
@@ -29,36 +26,12 @@ public class LibraryUser {
         return userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
     public int getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(int userPhone) {
-        this.userPhone = userPhone;
-    }
-
     public String getUserBooksBorrowed() {
         return userBooksBorrowed;
-    }
-
-    public void setUserBooksBorrowed(String userBooksBorrowed) {
-        this.userBooksBorrowed = userBooksBorrowed;
-    }
-
-    public void setUserBooksReserved(String userBooksReserved) {
-        this.userBooksReserved = userBooksReserved;
     }
 
     public String getUserEmail() {

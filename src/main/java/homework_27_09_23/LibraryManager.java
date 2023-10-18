@@ -4,23 +4,10 @@ import java.util.*;
 
 public class LibraryManager {
     Generator generator = new Generator();
-
-   // LibraryUser libraryUser;
-
     List<Book> libraryCatalog = new ArrayList<>();
     List<LibraryUser> libraryUsers = new ArrayList<>();
-
     List<Book> borrowedBooks = new ArrayList<>();
     List<Book> reservedBooks = new ArrayList<>();
-
-//    public LibraryManager() {
-//        setUpUsers();
-//        setUpBooks();
-//    }
-
-//    public LibraryManager() {
-//        libraryUser = new LibraryUser(generator.getUserId(), generator.getUserName(), generator.getUserEmail(), generator.getUserPhone(), borrowedBooks.toString(), reservedBooks.toString());
-//    }
 
     public List<Book> setUpBooks() {
 
@@ -36,22 +23,6 @@ public class LibraryManager {
             libraryCatalog.add(book);
         }
         return libraryCatalog;
-    }
-
-    public List<Book> setListBorrowedBook() {
-        while (borrowedBooks.size() < 5) {
-            Book book = generator.getUserBooksBorrowed();
-            borrowedBooks.add(book);
-        }
-        return borrowedBooks;
-    }
-
-    public List<Book> setListReservedBook() {
-        while (reservedBooks.size() < 10) {
-            Book book = generator.getUserBooksReserved();
-            reservedBooks.add(book);
-        }
-        return reservedBooks;
     }
 
     public List<LibraryUser> setUpUsers() {
@@ -73,7 +44,7 @@ public class LibraryManager {
     public List<Book> listAvailableBooksByGenre(Genre genre) {
         List<Book> newList = new ArrayList<>();
         for (Book i : libraryCatalog) {
-            if (i.getBookGenre().equals(genre)) { // && i.isBookAvailable() == true
+            if (i.getBookGenre().equals(genre)) {
                 newList.add(i);
             }
         }
@@ -98,24 +69,6 @@ public class LibraryManager {
         System.out.println("В библиотеку добавлена новая книга: " + book);
     }
 
-//////////////////////////////////////////////////////////
-    public void addBookToLibrary2(int bookId, String bookTitle, String bookAuthor, Genre bookGenre, int bookYear, boolean bookAvailable) {
-            Book book = new Book(bookId, bookTitle, bookAuthor, bookGenre, bookYear, bookAvailable);
-            libraryCatalog.add(book);
-            System.out.println("В библиотеку добавлена новая книга: " + book);
-        }
-
-
-
-
-
-
-
-
-
-
-
-    //////////////////////////////////////////////////////////////////////
     // 4. Метод, который удаляет книгу из библиотеки.
     public void removeBookFromLibrary(boolean bookAvailable) {
         Iterator<Book> iterator = libraryCatalog.iterator();
@@ -157,12 +110,4 @@ public class LibraryManager {
         }
         System.out.println("Пользователь " + userName + "поставил книгу: " + book + " в резерв");
     }
-
-//    public LibraryUser getLibraryUser() {
-//        return libraryUser;
-//    }
-//
-//    public void setLibraryUser(LibraryUser libraryUser) {
-//        this.libraryUser = libraryUser;
-//    }
 }

@@ -1,16 +1,14 @@
 package homework_27_09_23;
+
 import com.github.javafaker.Faker;
 
 import java.util.Random;
+
 public class Generator {
     Random random = new Random();
     Faker faker = new Faker();
 
     private LibraryManager libraryManager;
-
-    public Generator(LibraryManager libraryManager) {
-        this.libraryManager = libraryManager;
-    }
 
     public Generator() {
     }
