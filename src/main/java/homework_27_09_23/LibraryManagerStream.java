@@ -52,7 +52,7 @@ public class LibraryManagerStream {
     public Set<String> listUserEmailsWithReservedBooks2() {
         Set<String> setWithEmail = libraryManager.libraryUsers.stream()
                 .filter(us -> us.getUserBooksReserved() != null)
-                .map(libraryUser -> libraryUser.getUserName())
+                .map(libraryUser -> libraryUser.getUserEmail())
                 .collect(Collectors.toSet());
         return setWithEmail;
     }
