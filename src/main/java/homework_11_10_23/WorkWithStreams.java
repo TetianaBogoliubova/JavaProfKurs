@@ -146,7 +146,7 @@ public class WorkWithStreams {
         System.out.println("Все четные числа из двух списков: " + listStream);
     }
 
-    // 9. Есть два списка list1 и list2, и мы хотим получить все возможные комбинации сумм чисел из обоих списков.
+    //  И 9. Есть два списка list1 и list2, и мы хотим получить все возможные комбинации сумм чисел из обоих списков.
     //* Мы используем flatMap, чтобы преобразовать каждый элемент из list1 в поток,
     //* затем применяем map, чтобы создать поток сумм чисел из list1 и list2,
     //* и наконец, собираем все значения в combinedList.
@@ -205,19 +205,22 @@ public class WorkWithStreams {
 
     private List[] m11(int n) {
         List<Integer> list11 = Arrays.asList(6, 28, 9, 41, 9, 10, 4, 23, 9, 15);
-        List<List<Integer>> sublists = splitList(list11, n);
+        List<List<Integer>> sublists = splitList(list11, n);// Вызов метода splitList для разбиения list11 на подсписки размером n. Результат сохраняется в списке sublists.
         System.out.println("Список разбит на подсписки по " + n + " элементов");
-        sublists.forEach(x -> System.out.println(x));
-        return sublists.toArray(new List[0]);
+        sublists.forEach(x -> System.out.println(x));//Вывод каждого подсписка в sublists.
+        return sublists.toArray(new List[0]);//Преобразование sublists в массив List[] и возвращение его в качестве результата выполнения метода.
     }
 
+    //- Объявление статического метода splitList, который принимает список list и размер подсписков sublistSize.
     static List<List<Integer>> splitList(List<Integer> list, int sublistSize) {
-        int size = list.size();
-        int numSublists = (int) Math.ceil((double) size / sublistSize);
+        int size = list.size();//Получение размера списка list.
+        int numSublists = (int) Math.ceil((double) size / sublistSize);//
+        //Вычисление количества подсписков, округленных в большую сторону, необходимых для разбиения списка list на подсписки размером sublistSize.
 
-        return IntStream.range(0, numSublists)
+        return IntStream.range(0, numSublists)//Создание потока чисел от 0 до numSublists.
                 .mapToObj(i -> list.subList(i * sublistSize, Math.min((i + 1) * sublistSize, size)))
-                .collect(Collectors.toList());
+                //Для каждого i в потоке создается подсписок, начиная с i * sublistSize и заканчивая Math.min((i + 1) * sublistSize, size).
+                .collect(Collectors.toList());//Сбор всех подсписков в список и возвращение этого списка как результат выполнения метода.
     }
 
     // Задача 12. Найти сумму квадратов простых чисел, которые являются палиндромами в заданном диапазоне.
