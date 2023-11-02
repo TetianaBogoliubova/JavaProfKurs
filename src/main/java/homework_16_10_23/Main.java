@@ -1,4 +1,4 @@
-package homwork_16_10_23;
+package homework_16_10_23;
 
 import com.github.javafaker.Faker;
 
